@@ -10,15 +10,14 @@ public class SettingsMenu : MonoBehaviour
 {
     #region Fields
     [Header("Game Object")]
-    [SerializeField] private GameObject _title = null;
     [SerializeField] private GameObject _mainMenu = null;
     [SerializeField] private GameObject _settingsMenu = null;
-    [SerializeField] private Toggle _vSyncToggle = null;
     [SerializeField] private Toggle _fullScreenToggle = null;
+    [SerializeField] private Toggle _vSyncToggle = null;
     [Header("Resolutions")]
-    public List<ResolutionIndex> _resolutions = new List<ResolutionIndex>();
     public int _selectedResolutions;
     public TMP_Text _resolutionsText = null;
+    public List<ResolutionIndex> _resolutions = new List<ResolutionIndex>();
 
     #endregion Fields
 
@@ -41,7 +40,6 @@ public class SettingsMenu : MonoBehaviour
 
     public void Back()
     {
-        _title.SetActive(true);
         _mainMenu.SetActive(true);
         _settingsMenu.SetActive(false);
     }
