@@ -6,9 +6,11 @@ using Unity.VisualScripting;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("Game Object")]
     [SerializeField] private GameObject _mainMenu = null;
     [SerializeField] private GameObject _settingsMenu = null;
     [SerializeField] private GameObject _quitCheck = null;
+    [SerializeField] private GameObject _blur = null;
 
 
     void Start()
@@ -32,6 +34,7 @@ public class MainMenu : MonoBehaviour
     public void QuitChecking()
     {
         _quitCheck.SetActive(true);
+        _blur.SetActive(true);
     }
 
     public void QuitY()
@@ -42,6 +45,7 @@ public class MainMenu : MonoBehaviour
     public void QuitN()
     {
         _quitCheck.SetActive(false);
+        _blur.SetActive(false);
     }
     #endregion Quit Methods
 }
