@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    private float _zoomSize = 5f;
+    private float _maxOrtographicSize = 20;
+    [SerializeField] private Camera _camera;
     private Vector3 _origin;
     private Vector3 _difference;
     private Vector3 _resetCamera;
@@ -13,15 +16,48 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
+        _maxOrtographicSize = _camera.orthographicSize + 20;
         _resetCamera = Camera.main.transform.position;
+        _zoomSize = _camera.orthographicSize;
     }
 
-    void LateUpdate()
+    private void Update()
     {
-        if(Input.GetMouseButton(0)) 
+        _camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, 3, _maxOrtographicSize);
+        Zooming();
+        UnZooming();
+        MovingCamera();
+        CheckZooming();
+    }
+
+    void CheckZooming()
+    {
+        if(_camera.orthographicSize < 3)
+        {
+            _camera.orthographicSize = 5;
+        }
+    }
+    void Zooming()
+    {
+        if(Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            _camera.orthographicSize -= _zoomSize;
+        }
+    }
+    void UnZooming()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            _camera.orthographicSize += _zoomSize;
+        }
+    }
+
+    void MovingCamera()
+    {
+        if (Input.GetMouseButton(0))
         {
             _difference = (Camera.main.ScreenToWorldPoint(Input.mousePosition)) - Camera.main.transform.position;
-            if (_isDrag == false )
+            if (_isDrag == false)
             {
                 _isDrag = true;
                 _origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -32,12 +68,12 @@ public class CameraMovement : MonoBehaviour
             _isDrag = false;
         }
 
-        if(_isDrag == true )
+        if (_isDrag == true)
         {
             Camera.main.transform.position = _origin - _difference;
         }
 
-        if(Input.GetMouseButton(1))
+        if (Input.GetMouseButton(2))
         {
             Camera.main.transform.position = _resetCamera;
         }
