@@ -8,7 +8,7 @@ public class SlimesMovement : MonoBehaviour
     [SerializeField] private GameObject _gameArea = null;
     [SerializeField] private SlimesSpawner _spawner = null;
 
-    private float _speed = 15f; 
+    private float _speed = 3f; 
     void Start()
     {
         
@@ -16,10 +16,16 @@ public class SlimesMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
+        //Move();
+        Moving();
     }
 
-    void Move()
+    void Moving()
+    {
+        transform.position += Vector3.right * Time.deltaTime * _speed;
+    }
+
+    /*void Move()
     {
         transform.position += transform.up * (_speed * Time.deltaTime);
 
@@ -33,5 +39,5 @@ public class SlimesMovement : MonoBehaviour
     void RemoveSlime()
     {
         Destroy(gameObject);
-    }
+    }*/
 }
