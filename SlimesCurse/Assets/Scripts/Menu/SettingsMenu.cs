@@ -18,7 +18,9 @@ public class SettingsMenu : MonoBehaviour
     public int _selectedResolutions;
     public TMP_Text _resolutionsText = null;
     public List<ResolutionIndex> _resolutions = new List<ResolutionIndex>();
-
+    [Header("Text")]
+    [SerializeField] private TMP_Text _back = null;
+    private float _fontSize = 75f;
     #endregion Fields
 
     void Start()
@@ -33,15 +35,11 @@ public class SettingsMenu : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-
-    }
-
     public void Back()
     {
         _mainMenu.SetActive(true);
         _settingsMenu.SetActive(false);
+        _back.fontSize = _fontSize;
     }
 
     public void SetFullscreen(bool isFullScreen)

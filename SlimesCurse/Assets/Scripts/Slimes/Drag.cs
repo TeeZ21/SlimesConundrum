@@ -5,6 +5,7 @@ using UnityEngine;
 public class Drag : MonoBehaviour
 {
     private Transform _drag = null;
+    public static bool _isDragging = false;
     private Vector3 _offset = Vector3.zero;
     [SerializeField] private LayerMask _maskMovable;
 
@@ -17,11 +18,13 @@ public class Drag : MonoBehaviour
             {
                 _drag = hit.transform;
                 _offset = _drag.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                _isDragging = true;
             }
         }
         else if(Input.GetMouseButtonUp(2))
         {
             _drag = null;
+            _isDragging = false;
         }
         
         if(_drag != null)

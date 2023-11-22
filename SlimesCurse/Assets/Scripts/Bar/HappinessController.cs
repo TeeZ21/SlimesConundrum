@@ -6,8 +6,15 @@ public class HappinessController : MonoBehaviour
 {
     private float _currentHappiness = 100f;
     private float _maxHappiness = 100f;
-    private float _sadness = 1f;
+    private float _sadness = 5f;
     private float _happiness = 1f;
+    public float Sadness
+    {
+        get
+        {
+            return _sadness;
+        }
+    }
     public float HappinessPerc
     {
         get
@@ -38,15 +45,20 @@ public class HappinessController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            CurrentHappiness -= _sadness;
+            CurrentHappiness -= Sadness;
         }
+    }
+
+    public void Sadnessed(float value)
+    {
+        CurrentHappiness -= value;
     }
 
     void Happinessing()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            CurrentHappiness += _happiness;
+            CurrentHappiness += Sadness;
         }
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 using Unity.VisualScripting;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _settingsMenu = null;
     [SerializeField] private GameObject _quitCheck = null;
     [SerializeField] private GameObject _blur = null;
+    [Header("Text")]
+    [SerializeField] private TMP_Text _settings = null;
+    private float _fontSize = 75f;
 
 
     void Start()
@@ -28,6 +32,7 @@ public class MainMenu : MonoBehaviour
     {
         _mainMenu.SetActive(false);
         _settingsMenu.SetActive(true);
+        _settings.fontSize = _fontSize;
     }
 
     #region Quit Methods

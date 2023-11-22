@@ -3027,6 +3027,7 @@ MonoBehaviour:
     vertical: 1080
   - horizontal: 2560
     vertical: 1440
+  _back: {fileID: 1376344244}
 --- !u!1 &699789207
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,7 +4479,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1820930658}
   m_HandleRect: {fileID: 1820930657}
   m_Direction: 2
-  m_Value: 0.5
+  m_Value: 0.5000001
   m_Size: 0.5555556
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7819,6 +7820,7 @@ MonoBehaviour:
   _settingsMenu: {fileID: 696925809}
   _quitCheck: {fileID: 464062319}
   _blur: {fileID: 1885842330}
+  _settings: {fileID: 79611877}
 --- !u!1 &1936574630
 GameObject:
   m_ObjectHideFlags: 0

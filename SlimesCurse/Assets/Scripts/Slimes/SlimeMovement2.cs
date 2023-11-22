@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
-public class SlimesMovement : MonoBehaviour
+public class SlimeMovement2 : MonoBehaviour
 {
     [SerializeField] private GameObject _gameArea = null;
     [SerializeField] private SlimesSpawner _spawner = null;
+    [SerializeField] private HappinessController _happinessController = null;
+    [SerializeField] private GameObject _angry = null;
 
-    private float _speed = 3f; 
+    private float _speed = 1f;
     void Start()
     {
-        
+        _angry.SetActive(false);
     }
 
     void Update()
@@ -21,15 +22,21 @@ public class SlimesMovement : MonoBehaviour
 
     void Moving()
     {
-        transform.position += Vector3.right * Time.deltaTime * _speed;
+        transform.position -= Vector3.right * Time.deltaTime * _speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Slime")
+        if (collision.gameObject.tag == "Slime" && Drag._isDragging == false)
         {
-
+            _happinessController.Sadnessed(5f);
+            _angry.SetActive(true);
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        _angry.SetActive(false);
     }
 
     /*void Move()
