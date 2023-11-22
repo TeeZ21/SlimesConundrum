@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Drag : MonoBehaviour
+{
+    private Transform _drag = null;
+    private Vector3 _offset = Vector3.zero;
+    [SerializeField] private LayerMask _maskMovable;
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(2))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, float.PositiveInfinity, _maskMovable);
+            if(hit == true)
+            {
+                _drag = hit.transform;
+                _offset = _drag.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+        }
+        else if(Input.GetMouseButtonUp(2))
+        {
+            _drag = null;
+        }
+        
+        if(_drag != null)
+        {
+            _drag.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + _offset;
+        }
+    }
+}

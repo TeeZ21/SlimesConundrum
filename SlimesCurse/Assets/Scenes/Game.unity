@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 404747392}
   - component: {fileID: 404747391}
   - component: {fileID: 404747394}
-  - component: {fileID: 404747395}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -230,19 +229,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 404747392}
---- !u!114 &404747395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 404747390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41cbf48dae1ebea4aa3982ff01bf2d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slime: {fileID: 1730221005}
 --- !u!1 &496150626
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,9 +861,11 @@ GameObject:
   - component: {fileID: 1730221007}
   - component: {fileID: 1730221006}
   - component: {fileID: 1730221009}
-  - component: {fileID: 1730221010}
   - component: {fileID: 1730221011}
-  m_Layer: 0
+  - component: {fileID: 1730221013}
+  - component: {fileID: 1730221014}
+  - component: {fileID: 1730221015}
+  m_Layer: 6
   m_Name: 01
   m_TagString: Slime
   m_Icon: {fileID: 0}
@@ -986,24 +974,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameArea: {fileID: 0}
   _spawner: {fileID: 0}
---- !u!114 &1730221010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730221005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 0, b: 0, a: 1}
-  outlineWidth: 5
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!61 &1730221011
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1047,8 +1017,53 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.6, y: 9.6}
+  m_Size: {x: 7, y: 5}
   m_EdgeRadius: 0
+--- !u!114 &1730221013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730221005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1853102e9a9423c41868c8890a975037, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maskMovable:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &1730221014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730221005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 15
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1730221015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730221005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f76149aaad934e34ea7a7f74833f27a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1734608223
 GameObject:
   m_ObjectHideFlags: 0

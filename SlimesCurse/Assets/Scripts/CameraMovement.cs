@@ -73,7 +73,7 @@ public class CameraMovement : MonoBehaviour
             Camera.main.transform.position = _origin - _difference;
         }
 
-        if (Input.GetMouseButton(2))
+        if (Input.GetKeyDown(KeyCode.K)) //(Input.GetMouseButton(2))
         {
             Camera.main.transform.position = _resetCamera;
         }
