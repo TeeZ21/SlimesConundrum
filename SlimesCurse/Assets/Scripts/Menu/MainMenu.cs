@@ -15,7 +15,9 @@ public class MainMenu : MonoBehaviour
     [Header("Text")]
     [SerializeField] private TMP_Text _settings = null;
     private float _fontSize = 75f;
-
+    [Header("Animation")]
+    [SerializeField] private Animator _fade = null;
+    private float _transitionTime = 1f;
 
     void Start()
     {
@@ -25,7 +27,14 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Game");
+        StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+
+    public IEnumerator LoadScene(int levelIndex)
+    {
+        _fade.SetTrigger("Start");
+        yield return new WaitForSeconds(_transitionTime);
+        SceneManager.LoadScene(levelIndex);
     }
 
     public void OpenSettings()
