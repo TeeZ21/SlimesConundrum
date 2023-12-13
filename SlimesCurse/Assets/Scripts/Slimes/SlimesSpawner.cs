@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlimesSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _gameArea = null;
+    /*[SerializeField] private GameObject _gameArea = null;
     [SerializeField] private GameObject _slime = null;
 
     public float _spawnCircleRadius = 150f; //Properties
@@ -27,5 +27,5 @@ public class SlimesSpawner : MonoBehaviour
         position += _gameArea.transform.position;
 
         return position;
-    }
+    }*/
 }
