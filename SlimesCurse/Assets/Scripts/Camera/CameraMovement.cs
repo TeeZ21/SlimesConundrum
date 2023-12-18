@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    private float _zoomSize = 5f;
-    private float _maxOrtographicSize = 20;
+    private float _zoomSize = 0.1f;
+    private float _maxOrtographicSize = 1f;
     [SerializeField] private Camera _camera;
     private Vector3 _origin;
     private Vector3 _difference;
@@ -16,7 +16,7 @@ public class CameraMovement : MonoBehaviour
 
     void Start()
     {
-        _maxOrtographicSize = _camera.orthographicSize + 20;
+        _maxOrtographicSize = _camera.orthographicSize + 10;
         _resetCamera = Camera.main.transform.position;
         _zoomSize = _camera.orthographicSize;
     }
