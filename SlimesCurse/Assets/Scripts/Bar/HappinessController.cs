@@ -5,6 +5,7 @@ using UnityEngine;
 public class HappinessController : MonoBehaviour
 {
     private float _currentHappiness = 100f;
+    private int _slimeScore = 0;
     private float _maxHappiness = 100f;
     private float _sadness = 5f;
     private float _happiness = 1f;
@@ -34,9 +35,22 @@ public class HappinessController : MonoBehaviour
             HappinessManager.Instance.ChangeHappiness();
         }
     }
+
+    public int SlimeScore
+    {
+        get
+        {
+            return _slimeScore;
+        }
+        set
+        {
+            _slimeScore += 1;
+        }
+    }
     void Start()
     {
         CurrentHappiness = _maxHappiness;
+        _slimeScore = 0;
         GameLoopManager.Instance.OnGameLoop += Sadnessing;
         GameLoopManager.Instance.OnGameLoop += Happinessing;
     }
@@ -52,6 +66,11 @@ public class HappinessController : MonoBehaviour
     public void Sadnessed(float value)
     {
         CurrentHappiness -= value;
+    }
+
+    public void IncreaseSlimeScore(int value)
+    {
+        SlimeScore += value;
     }
 
     void Happinessing()

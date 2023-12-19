@@ -5779,12 +5779,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5881110152206835948}
   - {fileID: 1098041508}
   - {fileID: 1934336325}
   - {fileID: 696925810}
   - {fileID: 1885842331}
   - {fileID: 464062320}
-  - {fileID: 5881110152206835948}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -8781,6 +8781,11 @@ PrefabInstance:
     - target: {fileID: 5347231493849519526, guid: 74c2c624b1ef556498e02b9bd95bd203,
         type: 3}
       propertyPath: m_BlocksRaycasts
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347231493849519526, guid: 74c2c624b1ef556498e02b9bd95bd203,
+        type: 3}
+      propertyPath: m_IgnoreParentGroups
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

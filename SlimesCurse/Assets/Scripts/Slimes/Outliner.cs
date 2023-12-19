@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class Outliner : MonoBehaviour
 {
+    [SerializeField] private Outline _outline = null;
+    [SerializeField] private SlimeWander _slimeWander = null;
     private void Start()
     {
-        gameObject.GetComponent<Outline>().enabled = false;
+        _outline.enabled = false;
     }
 
     private void OnMouseEnter()
     {
-        gameObject.GetComponent<Outline>().enabled = true;
+        if(_slimeWander._isObstacled == false)
+        {
+            _outline.enabled = true;
+        }
     }
 
     private void OnMouseExit()
     {
-        gameObject.GetComponent<Outline>().enabled = false;
+        _outline.enabled = false;
     }
 }

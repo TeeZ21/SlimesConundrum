@@ -8,8 +8,17 @@ public class SlimeWander : MonoBehaviour
     [SerializeField] private float _range;
     [SerializeField] private float _maxDistance;
     [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private bool _isObstacled = false;
+    public bool _isObstacled = false;
+    [SerializeField] private HappinessBarController _happinessBarController = null;
+    [SerializeField] private HappinessController _happinessController = null;
     private Vector2 _wayPoint;
+    /*public bool IsObstacled
+    {
+        get 
+        { 
+            return _isObstacled; 
+        }
+    }*/
     void Start()
     {
         _isObstacled = false;
@@ -37,6 +46,8 @@ public class SlimeWander : MonoBehaviour
             _isObstacled = true;
             _wayPoint = collision.transform.position;
             _rigidbody.velocity = Vector2.zero;
+            _happinessController.IncreaseSlimeScore(1);
+            Debug.Log(_isObstacled);
         }
     }
 }
