@@ -5,27 +5,27 @@ using UnityEngine;
 public class Drag : MonoBehaviour
 {
     private Transform _drag = null;
-    public static bool _isDragging = false;
+    //public static bool _isDragging = false;
     private Vector3 _offset = Vector3.zero;
     [SerializeField] private SlimeWander _slimeWander = null;
     [SerializeField] private LayerMask _maskMovable;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(2) && _slimeWander._isObstacled == false)
+        if (Input.GetMouseButtonDown(0) && _slimeWander._isObstacled == false)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, float.PositiveInfinity, _maskMovable);
             if(hit == true)
             {
                 _drag = hit.transform;
                 _offset = _drag.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                _isDragging = true;
+                //_isDragging = true;
             }
         }
-        else if(Input.GetMouseButtonUp(2))
+        else if(Input.GetMouseButtonUp(0))
         {
             _drag = null;
-            _isDragging = false;
+            //_isDragging = false;
         }
         
         if(_drag != null)

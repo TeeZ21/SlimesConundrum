@@ -51,16 +51,6 @@ public class HappinessController : MonoBehaviour
     {
         CurrentHappiness = _maxHappiness;
         _slimeScore = 0;
-        GameLoopManager.Instance.OnGameLoop += Sadnessing;
-        GameLoopManager.Instance.OnGameLoop += Happinessing;
-    }
-
-    void Sadnessing()
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            CurrentHappiness -= Sadness;
-        }
     }
 
     public void Sadnessed(float value)
@@ -71,25 +61,5 @@ public class HappinessController : MonoBehaviour
     public void IncreaseSlimeScore(int value)
     {
         SlimeScore += value;
-    }
-
-    void Happinessing()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            CurrentHappiness += Sadness;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        GameLoopManager.Instance.OnGameLoop -= Sadnessing;
-        GameLoopManager.Instance.OnGameLoop -= Happinessing;
-    }
-
-    private void OnApplicationQuit()
-    {
-        GameLoopManager.Instance.OnGameLoop -= Sadnessing;
-        GameLoopManager.Instance.OnGameLoop -= Happinessing;
     }
 }

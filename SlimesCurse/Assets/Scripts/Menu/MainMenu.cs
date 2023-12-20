@@ -18,6 +18,9 @@ public class MainMenu : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private Animator _fade = null;
     private float _transitionTime = 1f;
+    private float _fadeAnimationTime = 1.95f;
+    [SerializeField] private GameObject _fadeOutCircle = null;
+    private bool _hasFinishedQuitAnimation = false;
 
     void Start()
     {
@@ -51,10 +54,23 @@ public class MainMenu : MonoBehaviour
         _quitCheck.SetActive(true);
         _blur.SetActive(true);
     }
+    private void Update()
+    {
+        if (_hasFinishedQuitAnimation == true && _fadeAnimationTime > 0)
+        {
+            _fadeOutCircle.SetActive(true);
+            _fadeAnimationTime -= Time.deltaTime;
+        }
+
+        if (_fadeAnimationTime <= 0 && _hasFinishedQuitAnimation == true)
+        {
+            Application.Quit();
+        }
+    }
 
     public void QuitY()
     {
-        Application.Quit();
+        _hasFinishedQuitAnimation = true;
     }
 
     public void QuitN()

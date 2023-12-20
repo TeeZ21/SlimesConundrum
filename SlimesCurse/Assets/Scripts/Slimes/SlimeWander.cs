@@ -11,6 +11,8 @@ public class SlimeWander : MonoBehaviour
     public bool _isObstacled = false;
     [SerializeField] private HappinessBarController _happinessBarController = null;
     [SerializeField] private HappinessController _happinessController = null;
+    [SerializeField] private GameOver _gameOver = null;
+    [SerializeField] private ESlimeTypes _slimeTypes = ESlimeTypes.BLACK;
     private Vector2 _wayPoint;
     /*public bool IsObstacled
     {
@@ -27,10 +29,17 @@ public class SlimeWander : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, _wayPoint, _speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position, _wayPoint) < _range && _isObstacled == false)
+        MovingToWayPoint();
+    }
+    void MovingToWayPoint()
+    {
+        if(_gameOver.IsGameOver == false)
         {
-            SetNewDestination();
+            transform.position = Vector2.MoveTowards(transform.position, _wayPoint, _speed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, _wayPoint) < _range && _isObstacled == false)
+            {
+                SetNewDestination();
+            }
         }
     }
 
@@ -42,12 +51,24 @@ public class SlimeWander : MonoBehaviour
     {
         if (collision.tag == "Obstacle")
         {
-            Debug.Log("Obstacle");
-            _isObstacled = true;
-            _wayPoint = collision.transform.position;
-            _rigidbody.velocity = Vector2.zero;
-            _happinessController.IncreaseSlimeScore(1);
-            Debug.Log(_isObstacled);
+            HappinessSpace spaceTypes = collision.GetComponent<HappinessSpace>();
+            if(_slimeTypes == spaceTypes.SpaceTypes)
+            {
+                Debug.Log("Obstacle");
+                _isObstacled = true;
+                _wayPoint = collision.transform.position;
+                _rigidbody.velocity = Vector2.zero;
+                if(_rigidbody.velocity == Vector2.zero)
+                {
+                    _happinessController.IncreaseSlimeScore(5);
+                    Debug.Log(_isObstacled);
+                }
+            }
+        }
+
+        if(collision.tag == "Slime")
+        {
+            _happinessController.Sadnessed(20f);
         }
     }
 }

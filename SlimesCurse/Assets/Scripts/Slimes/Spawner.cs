@@ -7,6 +7,7 @@ public class Spawner : MonoBehaviour
     #region Fields
     [SerializeField] private Transform _slimeContainer = null;
     [SerializeField] private float _delay = 10f;
+    [SerializeField] private GameOver _gameOver = null;
     [Header("Array")]
     [SerializeField] private Transform[] _spawnPos = null;
     [SerializeField] private GameObject[] _slime = null;
@@ -17,7 +18,10 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        Spawn();
+        if(_gameOver.IsGameOver == false)
+        {
+            Spawn();
+        }
     }
 
     void Spawn()

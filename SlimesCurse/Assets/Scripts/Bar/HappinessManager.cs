@@ -20,15 +20,37 @@ public class HappinessManager : Singleton<HappinessManager>
         }
     }
 
+    private event Action _gameOver = null;
+    public event Action OnGameOver
+    {
+        add
+        {
+            _gameOver -= value;
+            _gameOver += value;
+        }
+        remove
+        {
+            _gameOver -= value;
+        }
+    }
+
     protected override void Update()
     {
         ChangeHappiness();
+        DisplayGameOver();
     }
     public void ChangeHappiness()
     {
         if( _happinessChange != null )
         {
             _happinessChange();
+        }
+    }
+    public void DisplayGameOver()
+    {
+        if(_gameOver != null)
+        {
+            _gameOver();
         }
     }
 }
