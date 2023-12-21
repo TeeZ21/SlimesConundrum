@@ -61,5 +61,14 @@ public class HappinessController : MonoBehaviour
     public void IncreaseSlimeScore(int value)
     {
         SlimeScore += value;
+        CheckHighScore();
+    }
+
+    void CheckHighScore()
+    {
+        if(SlimeScore > PlayerPrefs.GetInt("HighScore", 0)) 
+        {
+            PlayerPrefs.SetInt("HighScore", SlimeScore);
+        }
     }
 }

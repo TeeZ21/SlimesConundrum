@@ -10,12 +10,13 @@ public class HappinessBarController : MonoBehaviour
     [SerializeField] private HappinessController _happinessController = null;
     private string _scoreString = null;
     [SerializeField] private TMP_Text _scoreText = null;
-
+    [SerializeField] private TMP_Text _highScore = null;
     private Vector3 _endPos = Vector3.zero;
     private Vector3 _fullPos = Vector3.zero;
 
     void Start()
     {
+        UpdateHighScoreText();
         _endPos.y = _fill.rectTransform.rect.height;
         HappinessManager.Instance.OnHappinessChange += UpdateBar;
         HappinessManager.Instance.OnHappinessChange += UpdateScoreText;
@@ -29,6 +30,11 @@ public class HappinessBarController : MonoBehaviour
     {
         _scoreText.text = _scoreString;
         _scoreString = "Slime : " + _happinessController.SlimeScore.ToString();
+    }
+
+    void UpdateHighScoreText() 
+    {
+        _highScore.text = $"HighScore : {PlayerPrefs.GetInt("HighScore", 0)}";
     }
 
     private void OnApplicationQuit()

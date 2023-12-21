@@ -13,6 +13,7 @@ public class SlimeWander : MonoBehaviour
     [SerializeField] private HappinessController _happinessController = null;
     [SerializeField] private GameOver _gameOver = null;
     [SerializeField] private ESlimeTypes _slimeTypes = ESlimeTypes.BLACK;
+
     private Vector2 _wayPoint;
     /*public bool IsObstacled
     {
@@ -54,15 +55,10 @@ public class SlimeWander : MonoBehaviour
             HappinessSpace spaceTypes = collision.GetComponent<HappinessSpace>();
             if(_slimeTypes == spaceTypes.SpaceTypes)
             {
-                Debug.Log("Obstacle");
                 _isObstacled = true;
                 _wayPoint = collision.transform.position;
                 _rigidbody.velocity = Vector2.zero;
-                if(_rigidbody.velocity == Vector2.zero)
-                {
-                    _happinessController.IncreaseSlimeScore(5);
-                    Debug.Log(_isObstacled);
-                }
+                _happinessController.IncreaseSlimeScore(5);
             }
         }
 
