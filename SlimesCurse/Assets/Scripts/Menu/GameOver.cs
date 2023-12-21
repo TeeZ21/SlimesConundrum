@@ -61,7 +61,7 @@ public class GameOver : MonoBehaviour
     private void SetScoreText()
     {
         _scoreText.text = _scoreString;
-        _scoreString = "Slime : " + _happinessController.SlimeScore.ToString();
+        _scoreString = "Score : " + _happinessController.SlimeScore.ToString();
     }
 
     public void RestartLevel()

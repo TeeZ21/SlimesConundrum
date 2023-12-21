@@ -7,9 +7,12 @@ public class FadeTransition : MonoBehaviour
 {
     [SerializeField] private float _fadeAnimationTime = 1.95f;
     [SerializeField] private GameObject _fadeInCircle = null;
+    [SerializeField] private GameObject _tutorialPanel = null;
+    [SerializeField] private Tutorial _tutorial = null;
     void Start()
     {
         _fadeInCircle.SetActive(true);
+        _tutorialPanel.SetActive(false);
     }
 
     void Update()
@@ -22,6 +25,8 @@ public class FadeTransition : MonoBehaviour
         if (_fadeAnimationTime <= 0)
         {
             _fadeInCircle.SetActive(false);
+            _tutorialPanel.SetActive(true);
+            _tutorial.HasTutorial = true;
         }
     }
 }

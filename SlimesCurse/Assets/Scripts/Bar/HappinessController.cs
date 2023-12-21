@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class HappinessController : MonoBehaviour
@@ -9,6 +10,7 @@ public class HappinessController : MonoBehaviour
     private float _maxHappiness = 100f;
     private float _sadness = 5f;
     private float _happiness = 1f;
+    [SerializeField] private TMP_Text _highScore = null;
     public float Sadness
     {
         get
@@ -51,6 +53,7 @@ public class HappinessController : MonoBehaviour
     {
         CurrentHappiness = _maxHappiness;
         _slimeScore = 0;
+        HappinessManager.Instance.OnHappinessChange += UpdateHighScoreText;
     }
 
     public void Sadnessed(float value)
@@ -69,6 +72,17 @@ public class HappinessController : MonoBehaviour
         if(SlimeScore > PlayerPrefs.GetInt("HighScore", 0)) 
         {
             PlayerPrefs.SetInt("HighScore", SlimeScore);
+            UpdateHighScoreText();
         }
+    }
+
+    void UpdateHighScoreText()
+    {
+        _highScore.text = $"HighScore : {PlayerPrefs.GetInt("HighScore", 0)}";
+    }
+
+    private void OnApplicationQuit()
+    {
+        HappinessManager.Instance.OnHappinessChange -= UpdateHighScoreText;
     }
 }
