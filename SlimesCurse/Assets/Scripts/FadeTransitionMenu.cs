@@ -6,10 +6,12 @@ public class FadeTransitionMenu : MonoBehaviour
 {
     [SerializeField] private float _fadeAnimationTime = 1.95f;
     [SerializeField] private GameObject _fadeInCircle = null;
+    [SerializeField] private AudioSource _backgroundMusic = null;
 
     void Start()
     {
         _fadeInCircle.SetActive(true);
+        _backgroundMusic.Play();
     }
 
     void Update()

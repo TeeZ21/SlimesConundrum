@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     private float _fadeAnimationTime = 1.95f;
     [SerializeField] private GameObject _fadeOutCircle = null;
     private bool _hasFinishedQuitAnimation = false;
+    [SerializeField] private AudioSource _buttonSound = null;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class MainMenu : MonoBehaviour
     public void Play()
     {
         //StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
+        _buttonSound.Play();
         SceneManager.LoadScene("Game");
     }
 
@@ -43,6 +45,7 @@ public class MainMenu : MonoBehaviour
 
     public void OpenSettings()
     {
+        _buttonSound.Play();
         _mainMenu.SetActive(false);
         _settingsMenu.SetActive(true);
         _settings.fontSize = _fontSize;
@@ -51,6 +54,7 @@ public class MainMenu : MonoBehaviour
     #region Quit Methods
     public void QuitChecking()
     {
+        _buttonSound.Play();
         _quitCheck.SetActive(true);
         _blur.SetActive(true);
     }
@@ -70,11 +74,13 @@ public class MainMenu : MonoBehaviour
 
     public void QuitY()
     {
+        _buttonSound.Play();
         _hasFinishedQuitAnimation = true;
     }
 
     public void QuitN()
     {
+        _buttonSound.Play();
         _quitCheck.SetActive(false);
         _blur.SetActive(false);
     }

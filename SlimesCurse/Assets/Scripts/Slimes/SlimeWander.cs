@@ -14,6 +14,7 @@ public class SlimeWander : MonoBehaviour
     [SerializeField] private GameOver _gameOver = null;
     [SerializeField] private ESlimeTypes _slimeTypes = ESlimeTypes.BLACK;
     [SerializeField] private Tutorial _tutorial = null;
+    [SerializeField] private Drag _drag = null;
 
     private Vector2 _wayPoint;
     /*public bool IsObstacled
@@ -51,7 +52,7 @@ public class SlimeWander : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Obstacle")
+        if (collision.tag == "Obstacle" && _drag.IsDragging == true)
         {
             HappinessSpace spaceTypes = collision.GetComponent<HappinessSpace>();
             if(_slimeTypes == spaceTypes.SpaceTypes)

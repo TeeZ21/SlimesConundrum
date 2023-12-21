@@ -8,10 +8,13 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] private HappinessController _happinessController = null;
     [SerializeField] private GameObject _gameOverScreen = null;
+    [SerializeField] private FadeTransition _fadeTransition = null;
     private string _scoreString = null;
     [SerializeField] private TMP_Text _scoreText = null;
     private float _fadeAnimationTime = 1.95f;
     [SerializeField] private GameObject _fadeOutCircle = null;
+    [SerializeField] private AudioSource _gameOverMusic = null;
+    [SerializeField] private AudioSource _buttonSound = null;
     private bool _hasFinishedMenuAnimation = false;
     private bool _hasFinishedRestartAnimation = false;
     private bool _isGameOver = false;
@@ -55,6 +58,8 @@ public class GameOver : MonoBehaviour
         {
             _gameOverScreen.SetActive(true);
             _isGameOver = true;
+            _fadeTransition.BackgroundMusic.Stop();
+            _gameOverMusic.Play();
         }
     }
 
@@ -66,12 +71,13 @@ public class GameOver : MonoBehaviour
 
     public void RestartLevel()
     {
+        _buttonSound.Play();
         _hasFinishedRestartAnimation = true;
-        Debug.Log("AHHHH");
     }
 
     public void OpenMainMenu()
     {
+        _buttonSound.Play();
         _hasFinishedMenuAnimation = true;
     }
 

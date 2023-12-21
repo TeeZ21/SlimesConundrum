@@ -8,6 +8,7 @@ public class Tutorial : MonoBehaviour
 {
     [SerializeField] private TMP_Text _displayTutorialLabel = null;
     [SerializeField] private string[] _labelsArray = null;
+    [SerializeField] private AudioSource _buttonSound = null;
     private int _currentLabelIndex = 0;
     private bool _isOutside = false;
     private bool _hasTutorial = false;
@@ -34,20 +35,28 @@ public class Tutorial : MonoBehaviour
     {
         if(_isOutside == false && _currentLabelIndex < _labelsArray.Length)
         {
+            _buttonSound.Play();
             _currentLabelIndex++;
 
             if (_currentLabelIndex > _labelsArray.Length)
             {
-                this.gameObject.SetActive(false);
-                _hasTutorial = false;
+                gameObject.SetActive(false);
+                _hasTutorial = true;
                 _isOutside = true;
             }
             _displayTutorialLabel.text = _labelsArray[_currentLabelIndex];
         }
         else
         {
-            this.gameObject.SetActive(false);
-            _hasTutorial = false;
+            gameObject.SetActive(false);
+            _hasTutorial = true;
+        }
+
+        if(_currentLabelIndex >= 4)
+        {
+            gameObject.SetActive(false);
+            _hasTutorial = true;
+            Debug.Log("AHHH");
         }
 
     }

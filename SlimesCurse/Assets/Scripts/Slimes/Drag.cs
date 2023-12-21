@@ -5,10 +5,17 @@ using UnityEngine;
 public class Drag : MonoBehaviour
 {
     private Transform _drag = null;
-    //public static bool _isDragging = false;
+    private bool _isDragging = false;
     private Vector3 _offset = Vector3.zero;
     [SerializeField] private SlimeWander _slimeWander = null;
     [SerializeField] private LayerMask _maskMovable;
+    public bool IsDragging
+    {
+        get
+        {
+            return _isDragging;
+        }
+    }
 
     private void Update()
     {
@@ -19,13 +26,12 @@ public class Drag : MonoBehaviour
             {
                 _drag = hit.transform;
                 _offset = _drag.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                //_isDragging = true;
             }
         }
         else if(Input.GetMouseButtonUp(0))
         {
             _drag = null;
-            //_isDragging = false;
+            _isDragging = true;
         }
         
         if(_drag != null)
