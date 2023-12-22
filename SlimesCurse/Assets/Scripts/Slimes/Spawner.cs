@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Transform _slimeContainer = null;
     [SerializeField] private float _delay = 10f;
     [SerializeField] private GameOver _gameOver = null;
+    [SerializeField] private Pause _pause = null;
     [Header("Array")]
     [SerializeField] private Transform[] _spawnPos = null;
     [SerializeField] private GameObject[] _slime = null;
@@ -19,7 +20,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == true)
+        if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == true && _pause.IsPaused == false)
         {
             Spawn();
         }

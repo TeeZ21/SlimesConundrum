@@ -15,6 +15,7 @@ public class SlimeWander : MonoBehaviour
     [SerializeField] private ESlimeTypes _slimeTypes = ESlimeTypes.BLACK;
     [SerializeField] private Tutorial _tutorial = null;
     [SerializeField] private Drag _drag = null;
+    [SerializeField] private Pause _pause = null;
 
     private Vector2 _wayPoint;
     /*public bool IsObstacled
@@ -36,7 +37,7 @@ public class SlimeWander : MonoBehaviour
     }
     void MovingToWayPoint()
     {
-        if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == true)
+        if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == true && _pause.IsPaused == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, _wayPoint, _speed * Time.deltaTime);
             if (Vector2.Distance(transform.position, _wayPoint) < _range && _isObstacled == false)

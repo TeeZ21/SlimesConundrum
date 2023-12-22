@@ -14,6 +14,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private GameObject _settingsMenu = null;
     [SerializeField] private Toggle _fullScreenToggle = null;
     [SerializeField] private Toggle _vSyncToggle = null;
+    [SerializeField] private GameObject _resumeMenu = null;
     [Header("Resolutions")]
     public int _selectedResolutions;
     public TMP_Text _resolutionsText = null;
@@ -39,10 +40,18 @@ public class SettingsMenu : MonoBehaviour
         _scrollbar.value = 1;
     }
 
-    public void Back()
+    public void BackMainMenu()
     {
         _buttonSound.Play();
         _mainMenu.SetActive(true);
+        _settingsMenu.SetActive(false);
+        _back.fontSize = _fontSize;
+    }
+
+    public void BackResumeMenu()
+    {
+        _buttonSound.Play();
+        _resumeMenu.SetActive(true);
         _settingsMenu.SetActive(false);
         _back.fontSize = _fontSize;
     }
