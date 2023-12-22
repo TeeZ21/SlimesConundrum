@@ -5,19 +5,20 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     #region Fields
+    [Header("Game Objects")]
     [SerializeField] private Transform _slimeContainer = null;
-    [SerializeField] private float _delay = 10f;
     [SerializeField] private GameOver _gameOver = null;
     [SerializeField] private Pause _pause = null;
+    [SerializeField] private Tutorial _tutorial = null;
     [Header("Array")]
     [SerializeField] private Transform[] _spawnPos = null;
     [SerializeField] private GameObject[] _slime = null;
-    [SerializeField] private Tutorial _tutorial = null;
-
-
+    [Header("Misc")]
+    [SerializeField] private float _delay = 10f;
     private float _timeStamp = 0;
     #endregion Fields
 
+    #region Methods
     void Update()
     {
         if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == true && _pause.IsPaused == false)
@@ -37,4 +38,5 @@ public class Spawner : MonoBehaviour
             _timeStamp = 0;
         }
     }
+    #endregion Methods
 }

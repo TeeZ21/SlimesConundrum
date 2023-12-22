@@ -19,7 +19,7 @@ public class Drag : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && _slimeWander._isObstacled == false)
+        if (Input.GetMouseButtonDown(0) && _slimeWander.IsObstacled == false)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero, float.PositiveInfinity, _maskMovable);
             if(hit == true)
@@ -39,7 +39,7 @@ public class Drag : MonoBehaviour
             _drag.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + _offset;
         }
 
-        if(Input.GetMouseButtonUp(0) && _slimeWander._isObstacled == true)
+        if(Input.GetMouseButtonUp(0) && _slimeWander.IsObstacled == true)
         {
             
         }

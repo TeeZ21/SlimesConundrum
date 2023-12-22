@@ -7,6 +7,7 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+    #region Fields
     [Header("Game Object")]
     [SerializeField] private GameObject _mainMenu = null;
     [SerializeField] private GameObject _settingsMenu = null;
@@ -15,14 +16,16 @@ public class MainMenu : MonoBehaviour
     [Header("Text")]
     [SerializeField] private TMP_Text _settings = null;
     private float _fontSize = 75f;
+    [Header("Sound")]
+    [SerializeField] private AudioSource _buttonSound = null;
     [Header("Animation")]
-    [SerializeField] private Animator _fade = null;
-    private float _transitionTime = 1f;
     private float _fadeAnimationTime = 1.95f;
     [SerializeField] private GameObject _fadeOutCircle = null;
     private bool _hasFinishedQuitAnimation = false;
-    [SerializeField] private AudioSource _buttonSound = null;
 
+    #endregion Fields
+
+    #region Methods
     void Start()
     {
         _mainMenu.SetActive(true);
@@ -31,16 +34,8 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        //StartCoroutine(LoadScene(SceneManager.GetActiveScene().buildIndex + 1));
         _buttonSound.Play();
         SceneManager.LoadScene("Game");
-    }
-
-    public IEnumerator LoadScene(int levelIndex)
-    {
-        _fade.SetTrigger("Start");
-        yield return new WaitForSeconds(_transitionTime);
-        SceneManager.LoadScene(levelIndex);
     }
 
     public void OpenSettings()
@@ -85,4 +80,5 @@ public class MainMenu : MonoBehaviour
         _blur.SetActive(false);
     }
     #endregion Quit Methods
+    #endregion Methods
 }

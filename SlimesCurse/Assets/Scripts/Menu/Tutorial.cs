@@ -6,17 +6,24 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _displayTutorialLabel = null;
-    [SerializeField] private string[] _labelsArray = null;
-    [SerializeField] private AudioSource _buttonSound = null;
+    #region Fields
     private int _currentLabelIndex = 0;
     private bool _hasTutorial = false;
+    [Header("Label")]
+    [SerializeField] private TMP_Text _displayTutorialLabel = null;
+    [SerializeField] private string[] _labelsArray = null;
+    [Header("Blur")]
     [SerializeField] private GameObject _blurBackground = null;
     [SerializeField] private GameObject _blurHappinessBar = null;
     [SerializeField] private GameObject _blurScore = null;
     [SerializeField] private GameObject _blurContainer = null;
     [SerializeField] private GameObject _king = null;
+    [Header("Sound")]
+    [SerializeField] private AudioSource _buttonSound = null;
 
+    #endregion Fields
+
+    #region Property
     public bool HasTutorial
     {
         get
@@ -29,6 +36,9 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    #endregion Property
+
+    #region Methods
     void Start()
     {
         _displayTutorialLabel.text = _labelsArray[_currentLabelIndex];
@@ -68,6 +78,7 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    #region SetPanels
     private void SetContainersPanel()
     {
         _blurBackground.SetActive(false);
@@ -93,4 +104,8 @@ public class Tutorial : MonoBehaviour
         _blurContainer.SetActive(false);
         _king.SetActive(true);
     }
+
+    #endregion SetPanels
+
+    #endregion Methods
 }

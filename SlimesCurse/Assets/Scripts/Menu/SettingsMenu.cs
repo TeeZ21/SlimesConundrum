@@ -15,6 +15,7 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Toggle _fullScreenToggle = null;
     [SerializeField] private Toggle _vSyncToggle = null;
     [SerializeField] private GameObject _resumeMenu = null;
+    [SerializeField] private Scrollbar _scrollbar = null;
     [Header("Resolutions")]
     public int _selectedResolutions;
     public TMP_Text _resolutionsText = null;
@@ -22,10 +23,12 @@ public class SettingsMenu : MonoBehaviour
     [Header("Text")]
     [SerializeField] private TMP_Text _back = null;
     private float _fontSize = 75f;
+    [Header("Sound")]
     [SerializeField] private AudioSource _buttonSound = null;
-    [SerializeField] private Scrollbar _scrollbar = null;
+
     #endregion Fields
 
+    #region Methods
     void Start()
     {
         if (QualitySettings.vSyncCount == 0)
@@ -108,6 +111,8 @@ public class SettingsMenu : MonoBehaviour
     {
         Screen.SetResolution(_resolutions[_selectedResolutions].horizontal, _resolutions[_selectedResolutions].vertical, _fullScreenToggle.isOn);
     }
+
+    #endregion Methods
 }
 
 [System.Serializable]

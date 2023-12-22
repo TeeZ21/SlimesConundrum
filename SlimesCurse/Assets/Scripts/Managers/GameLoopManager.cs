@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class GameLoopManager : Singleton<GameLoopManager>
 {
+    #region Fields
     private event Action _earlyGameLoop = null;
+    private event Action _gameLoop = null;
+    private event Action _lateGameLoop = null;
+    #endregion Fields
+
+    #region Properties
+
     public event Action OnEarlyGameLoop
     {
         add
@@ -19,7 +26,6 @@ public class GameLoopManager : Singleton<GameLoopManager>
         }
     }
 
-    private event Action _gameLoop = null;
     public event Action OnGameLoop
     {
         add
@@ -33,7 +39,6 @@ public class GameLoopManager : Singleton<GameLoopManager>
         }
     }
 
-    private event Action _lateGameLoop = null;
     public event Action OnLateGameLoop
     {
         add
@@ -46,6 +51,7 @@ public class GameLoopManager : Singleton<GameLoopManager>
             _lateGameLoop -= value;
         }
     }
+    #endregion Properties
 
     protected override void Update()
     {

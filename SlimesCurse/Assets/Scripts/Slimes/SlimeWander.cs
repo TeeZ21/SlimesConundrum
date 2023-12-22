@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class SlimeWander : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private float _range;
-    [SerializeField] private float _maxDistance;
+    #region Fields
+    [Header("Game Objects")]
     [SerializeField] private Rigidbody2D _rigidbody;
-    public bool _isObstacled = false;
     [SerializeField] private HappinessBarController _happinessBarController = null;
     [SerializeField] private HappinessController _happinessController = null;
     [SerializeField] private GameOver _gameOver = null;
@@ -16,18 +14,33 @@ public class SlimeWander : MonoBehaviour
     [SerializeField] private Tutorial _tutorial = null;
     [SerializeField] private Drag _drag = null;
     [SerializeField] private Pause _pause = null;
-
+    [Header("Metrics")]
+    [SerializeField] private float _speed;
+    [SerializeField] private float _range;
+    [SerializeField] private float _maxDistance;
     private Vector2 _wayPoint;
-    /*public bool IsObstacled
+
+    #endregion Fields
+    #region Property
+    private bool _isObstacled = false;
+
+    public bool IsObstacled
     {
-        get 
-        { 
-            return _isObstacled; 
+        get
+        {
+            return _isObstacled;
         }
-    }*/
+        set
+        {
+            _isObstacled = value;
+        }
+    }
+    #endregion Property
+
+    #region Methods
     void Start()
     {
-        _isObstacled = false;
+        IsObstacled = false;
         SetNewDestination();
     }
 
@@ -40,7 +53,7 @@ public class SlimeWander : MonoBehaviour
         if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == true && _pause.IsPaused == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, _wayPoint, _speed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, _wayPoint) < _range && _isObstacled == false)
+            if (Vector2.Distance(transform.position, _wayPoint) < _range && IsObstacled == false)
             {
                 SetNewDestination();
             }
@@ -55,10 +68,10 @@ public class SlimeWander : MonoBehaviour
     {
         if (collision.tag == "Obstacle" && _drag.IsDragging == true)
         {
-            HappinessSpace spaceTypes = collision.GetComponent<HappinessSpace>();
-            if(_slimeTypes == spaceTypes.SpaceTypes)
+            Container container = collision.GetComponent<Container>();
+            if(_slimeTypes == container.ContainerTypes)
             {
-                _isObstacled = true;
+                IsObstacled = true;
                 _wayPoint = collision.transform.position;
                 _rigidbody.velocity = Vector2.zero;
                 _happinessController.IncreaseSlimeScore(5);
@@ -67,7 +80,8 @@ public class SlimeWander : MonoBehaviour
 
         if(collision.tag == "Slime")
         {
-            _happinessController.Sadnessed(.2f);
+            _happinessController.ProvokeAnger(.2f);
         }
     }
+    #endregion Methods
 }

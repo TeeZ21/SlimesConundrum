@@ -596,7 +596,7 @@ GameObject:
   m_Component:
   - component: {fileID: 162286521}
   m_Layer: 5
-  m_Name: MenuSlimes
+  m_Name: Slimes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1741,7 +1741,7 @@ GameObject:
   - component: {fileID: 1105558595}
   - component: {fileID: 1105558594}
   m_Layer: 5
-  m_Name: Background
+  m_Name: BackgroundGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2245,7 +2245,7 @@ Transform:
   m_GameObject: {fileID: 1391663259}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.035843, y: 25.760534, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2375,7 +2375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c84d341d0365dc44e9824e9dbe6fa19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeAnimationTime: 1.95
   _fadeInCircle: {fileID: 1821134771}
   _backgroundMusic: {fileID: 1406879188}
 --- !u!82 &1406879188
@@ -3226,9 +3225,8 @@ MonoBehaviour:
   _quitCheck: {fileID: 464062319}
   _blur: {fileID: 1885842330}
   _settings: {fileID: 79611877}
-  _fade: {fileID: 0}
-  _fadeOutCircle: {fileID: 947332868}
   _buttonSound: {fileID: 1391663260}
+  _fadeOutCircle: {fileID: 947332868}
 --- !u!82 &1934336327
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3402,6 +3400,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1406879186}
     m_Modifications:
+    - target: {fileID: 249703355568411841, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_text
+      value: SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 673007758605098749, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Slider_Music
+      objectReference: {fileID: 0}
     - target: {fileID: 1663306457159625747, guid: 56eae785283aa6445bf436e32cc2c967,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -3412,6 +3420,21 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1406879189}
+    - target: {fileID: 3314271649112619246, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Toggle_VSync
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443423437752645426, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Text_SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561910157861469236, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Toggle_Fullscreen
+      objectReference: {fileID: 0}
     - target: {fileID: 5603757992381470893, guid: 56eae785283aa6445bf436e32cc2c967,
         type: 3}
       propertyPath: m_Name
@@ -3427,6 +3450,16 @@ PrefabInstance:
       propertyPath: _buttonSound
       value: 
       objectReference: {fileID: 1391663260}
+    - target: {fileID: 6540814561099338238, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Slider_SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624216962294439808, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Slider_MasterVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 8023657153894375499, guid: 56eae785283aa6445bf436e32cc2c967,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3531,6 +3564,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8360551055080165039, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: HorizontalBoxSFX
       objectReference: {fileID: 0}
     - target: {fileID: 9050135456794197203, guid: 56eae785283aa6445bf436e32cc2c967,
         type: 3}

@@ -1257,13 +1257,13 @@ MonoBehaviour:
   - Right here, you have the number of slime that you will have stored correctly.
     Try to stay as long as possible to have time to put away as much as possible.
     Good luck Comrade!
-  - 
-  _buttonSound: {fileID: 1502466813}
+  - None
   _blurBackground: {fileID: 1027887467}
   _blurHappinessBar: {fileID: 500660895}
   _blurScore: {fileID: 150024733}
   _blurContainer: {fileID: 577927171}
   _king: {fileID: 942724499}
+  _buttonSound: {fileID: 1502466813}
 --- !u!1 &352626653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b9881d3a34d964ab7ec8ec4df81632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spaceTypes: 3
+  _containerTypes: 3
 --- !u!1 &384569109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b9881d3a34d964ab7ec8ec4df81632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spaceTypes: 1
+  _containerTypes: 1
 --- !u!1 &404747390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1930,7 +1930,6 @@ GameObject:
   - component: {fileID: 404747393}
   - component: {fileID: 404747392}
   - component: {fileID: 404747391}
-  - component: {fileID: 404747394}
   - component: {fileID: 404747395}
   m_Layer: 0
   m_Name: Main Camera
@@ -2013,19 +2012,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &404747394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 404747390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8b5a8811b8b414eb073d207d289cc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _camera: {fileID: 404747392}
 --- !u!114 &404747395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3041,11 +3027,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7323600690657d4fb6e5175eedcf429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
-  _range: 5
-  _maxDistance: 8
   _rigidbody: {fileID: 597409787}
-  _isObstacled: 0
   _happinessBarController: {fileID: 2104240923}
   _happinessController: {fileID: 2104240922}
   _gameOver: {fileID: 1972341402}
@@ -3053,6 +3035,9 @@ MonoBehaviour:
   _tutorial: {fileID: 338712773}
   _drag: {fileID: 597409790}
   _pause: {fileID: 404747395}
+  _speed: 1
+  _range: 5
+  _maxDistance: 8
 --- !u!95 &597409793
 Animator:
   serializedVersion: 5
@@ -3623,11 +3608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7323600690657d4fb6e5175eedcf429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
-  _range: 5
-  _maxDistance: 8
   _rigidbody: {fileID: 805480342}
-  _isObstacled: 0
   _happinessBarController: {fileID: 2104240923}
   _happinessController: {fileID: 2104240922}
   _gameOver: {fileID: 1972341402}
@@ -3635,6 +3616,9 @@ MonoBehaviour:
   _tutorial: {fileID: 338712773}
   _drag: {fileID: 597409790}
   _pause: {fileID: 404747395}
+  _speed: 1
+  _range: 5
+  _maxDistance: 8
 --- !u!1 &825770495
 GameObject:
   m_ObjectHideFlags: 0
@@ -3889,6 +3873,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2076485161}
     m_Modifications:
+    - target: {fileID: 249703355568411841, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_text
+      value: SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 673007758605098749, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Slider_Music
+      objectReference: {fileID: 0}
     - target: {fileID: 1663306457159625747, guid: 56eae785283aa6445bf436e32cc2c967,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3914,6 +3908,31 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2449757629896741749, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1972341404}
+    - target: {fileID: 2449757629896741749, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314271649112619246, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Toggle_VSync
+      objectReference: {fileID: 0}
+    - target: {fileID: 3443423437752645426, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Text_SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 4561910157861469236, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Toggle_Fullscreen
+      objectReference: {fileID: 0}
     - target: {fileID: 5603757992381470893, guid: 56eae785283aa6445bf436e32cc2c967,
         type: 3}
       propertyPath: m_Name
@@ -3934,6 +3953,26 @@ PrefabInstance:
       propertyPath: _buttonSound
       value: 
       objectReference: {fileID: 1502466813}
+    - target: {fileID: 6540814561099338238, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Slider_SFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624216962294439808, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: Slider_MasterVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023657153894375499, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1972341404}
+    - target: {fileID: 8023657153894375499, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetMusicVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 8303980747107877114, guid: 56eae785283aa6445bf436e32cc2c967,
         type: 3}
       propertyPath: m_Pivot.x
@@ -4034,6 +4073,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8360551055080165039, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_Name
+      value: HorizontalBoxSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 9050135456794197203, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1972341404}
+    - target: {fileID: 9050135456794197203, guid: 56eae785283aa6445bf436e32cc2c967,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSFXVolume
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4045,6 +4099,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 871639352}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &871639354 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9050135456794197203, guid: 56eae785283aa6445bf436e32cc2c967,
+    type: 3}
+  m_PrefabInstance: {fileID: 871639352}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &871639355 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5603757992381470893, guid: 56eae785283aa6445bf436e32cc2c967,
@@ -4061,6 +4127,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 126327b327ee62749b243c3341946872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &871639357 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8023657153894375499, guid: 56eae785283aa6445bf436e32cc2c967,
+    type: 3}
+  m_PrefabInstance: {fileID: 871639352}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &871639358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2449757629896741749, guid: 56eae785283aa6445bf436e32cc2c967,
+    type: 3}
+  m_PrefabInstance: {fileID: 871639352}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &876936682
@@ -4617,9 +4707,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimeContainer: {fileID: 2134012312}
-  _delay: 2.5
   _gameOver: {fileID: 1972341402}
   _pause: {fileID: 404747395}
+  _tutorial: {fileID: 338712773}
   _spawnPos:
   - {fileID: 1912503486}
   - {fileID: 1204546446}
@@ -4629,7 +4719,7 @@ MonoBehaviour:
   - {fileID: 805480332}
   - {fileID: 1657024707}
   - {fileID: 597409786}
-  _tutorial: {fileID: 338712773}
+  _delay: 2.5
 --- !u!1 &1120118030
 GameObject:
   m_ObjectHideFlags: 0
@@ -5338,7 +5428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b9881d3a34d964ab7ec8ec4df81632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spaceTypes: 2
+  _containerTypes: 2
 --- !u!1 &1283449143
 GameObject:
   m_ObjectHideFlags: 0
@@ -5846,7 +5936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b9881d3a34d964ab7ec8ec4df81632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spaceTypes: 0
+  _containerTypes: 0
 --- !u!1 &1370479958
 GameObject:
   m_ObjectHideFlags: 0
@@ -6678,11 +6768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7323600690657d4fb6e5175eedcf429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
-  _range: 5
-  _maxDistance: 8
   _rigidbody: {fileID: 1657024708}
-  _isObstacled: 0
   _happinessBarController: {fileID: 2104240923}
   _happinessController: {fileID: 2104240922}
   _gameOver: {fileID: 1972341402}
@@ -6690,6 +6776,9 @@ MonoBehaviour:
   _tutorial: {fileID: 338712773}
   _drag: {fileID: 597409790}
   _pause: {fileID: 404747395}
+  _speed: 1
+  _range: 5
+  _maxDistance: 8
 --- !u!95 &1657024714
 Animator:
   serializedVersion: 5
@@ -7161,11 +7250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7323600690657d4fb6e5175eedcf429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
-  _range: 5
-  _maxDistance: 8
   _rigidbody: {fileID: 1730221016}
-  _isObstacled: 0
   _happinessBarController: {fileID: 2104240923}
   _happinessController: {fileID: 2104240922}
   _gameOver: {fileID: 1972341402}
@@ -7173,6 +7258,9 @@ MonoBehaviour:
   _tutorial: {fileID: 338712773}
   _drag: {fileID: 597409790}
   _pause: {fileID: 404747395}
+  _speed: 1
+  _range: 5
+  _maxDistance: 8
 --- !u!1 &1734608223
 GameObject:
   m_ObjectHideFlags: 0
@@ -7770,6 +7858,7 @@ GameObject:
   - component: {fileID: 1972341398}
   - component: {fileID: 1972341402}
   - component: {fileID: 1972341403}
+  - component: {fileID: 1972341404}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7881,8 +7970,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _happinessController: {fileID: 2104240922}
   _gameOverScreen: {fileID: 292498149}
-  _fadeTransition: {fileID: 1972341403}
   _scoreText: {fileID: 1234686237}
+  _initTutorial: {fileID: 1972341403}
   _fadeOutCircle: {fileID: 542647438}
   _gameOverMusic: {fileID: 509303075}
   _buttonSound: {fileID: 1502466813}
@@ -7898,11 +7987,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458e758b05c7bd447aacaeb63bab68ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fadeAnimationTime: 1.95
   _fadeInCircle: {fileID: 516060921}
   _tutorialPanel: {fileID: 338712771}
   _tutorial: {fileID: 338712773}
   _backgroundMusic: {fileID: 1370479960}
+--- !u!114 &1972341404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972341397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8db385c7162c624290a4a222dd2a96d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixer: {fileID: 24100000, guid: 56368e70d51fe5541b2e5cf92e1471bc, type: 2}
+  _masterVolume: {fileID: 871639358}
+  _musicSlider: {fileID: 871639357}
+  _sfxSlider: {fileID: 871639354}
 --- !u!1 &1996538541
 GameObject:
   m_ObjectHideFlags: 0
@@ -7990,7 +8094,7 @@ GameObject:
   - component: {fileID: 2026856907}
   - component: {fileID: 2026856906}
   m_Layer: 5
-  m_Name: BackgroundBlur
+  m_Name: GameOverBlur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

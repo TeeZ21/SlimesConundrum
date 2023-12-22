@@ -6,18 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    #region Fields
     [SerializeField] private HappinessController _happinessController = null;
     [SerializeField] private GameObject _gameOverScreen = null;
-    [SerializeField] private FadeTransition _fadeTransition = null;
     private string _scoreString = null;
     [SerializeField] private TMP_Text _scoreText = null;
+    [Header("Animation")]
+    [SerializeField] private InitTutorial _initTutorial = null;
     private float _fadeAnimationTime = 1.95f;
     [SerializeField] private GameObject _fadeOutCircle = null;
+    [Header("Music")]
     [SerializeField] private AudioSource _gameOverMusic = null;
     [SerializeField] private AudioSource _buttonSound = null;
     private bool _hasFinishedMenuAnimation = false;
     private bool _hasFinishedRestartAnimation = false;
     private bool _isGameOver = false;
+    #endregion Fields
+    #region Properties
     public bool IsGameOver
     {
         get
@@ -25,6 +30,9 @@ public class GameOver : MonoBehaviour
             return _isGameOver;
         }
     }
+    #endregion Properties
+
+    #region Methods
     void Start()
     {
         _gameOverScreen.SetActive(false);
@@ -58,7 +66,7 @@ public class GameOver : MonoBehaviour
         {
             _gameOverScreen.SetActive(true);
             _isGameOver = true;
-            _fadeTransition.BackgroundMusic.Stop();
+            _initTutorial.BackgroundMusic.Stop();
             _gameOverMusic.Play();
         }
     }
@@ -92,4 +100,6 @@ public class GameOver : MonoBehaviour
         HappinessManager.Instance.OnGameOver -= DisplayScreen;
         HappinessManager.Instance.OnGameOver -= SetScoreText;
     }
+
+    #endregion Methods
 }

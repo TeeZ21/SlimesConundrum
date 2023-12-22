@@ -6,10 +6,14 @@ using UnityEngine;
 
 public class VolumeSettings : MonoBehaviour
 {
+    #region Fields
     [SerializeField] private AudioMixer _mixer = null;
     [SerializeField] private Slider _masterVolume = null;
     [SerializeField] private Slider _musicSlider = null;
     [SerializeField] private Slider _sfxSlider = null;
+    #endregion Fields
+
+    #region Methods
 
     private void Start()
     {
@@ -56,4 +60,6 @@ public class VolumeSettings : MonoBehaviour
         SetMusicVolume();
         SetSFXVolume();
     }
+
+    #endregion Methods
 }

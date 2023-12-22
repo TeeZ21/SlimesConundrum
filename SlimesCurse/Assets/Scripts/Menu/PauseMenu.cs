@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    #region Fields
+    [Header("Game Objects")]
     [SerializeField] private GameObject _resumeMenu = null;
     [SerializeField] private GameObject _settingsMenu = null;
     [SerializeField] private GameObject _quitCheck = null;
@@ -22,8 +24,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject _fadeOutCircle = null;
     private bool _hasFinishedQuitAnimation = false;
     private bool _hasFinishedReturnMainAnimation = false;
+    [Header("Sound")]
     [SerializeField] private AudioSource _buttonSound = null;
 
+    #endregion Fields
+
+    #region Methods
     void Start()
     {
         _settingsMenu.SetActive(false);
@@ -90,5 +96,6 @@ public class PauseMenu : MonoBehaviour
         _hasFinishedQuitAnimation = true;
     }
     #endregion Quit Methods
+    #endregion Methods
 
 }
