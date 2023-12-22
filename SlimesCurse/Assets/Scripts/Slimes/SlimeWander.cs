@@ -14,11 +14,15 @@ public class SlimeWander : MonoBehaviour
     [SerializeField] private Tutorial _tutorial = null;
     [SerializeField] private Drag _drag = null;
     [SerializeField] private Pause _pause = null;
+    [SerializeField] private Outliner _outliner = null;
     [Header("Metrics")]
     [SerializeField] private float _speed;
     [SerializeField] private float _range;
     [SerializeField] private float _maxDistance;
+
     private Vector2 _wayPoint;
+    [Header("Sound")]
+    [SerializeField] private AudioSource _achieveBell = null;
 
     #endregion Fields
     #region Property
@@ -75,12 +79,18 @@ public class SlimeWander : MonoBehaviour
                 _wayPoint = collision.transform.position;
                 _rigidbody.velocity = Vector2.zero;
                 _happinessController.IncreaseSlimeScore(5);
+                _outliner.enabled = false; //Safety
+                _achieveBell.Play();
             }
         }
 
         if(collision.tag == "Slime")
         {
-            _happinessController.ProvokeAnger(.2f);
+            SlimeWander otherSlime = collision.GetComponent<SlimeWander>();
+            if(_slimeTypes != otherSlime._slimeTypes)
+            {
+                _happinessController.ProvokeAnger(.2f);
+            }
         }
     }
     #endregion Methods

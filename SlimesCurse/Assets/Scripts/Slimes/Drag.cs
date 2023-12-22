@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Drag : MonoBehaviour
 {
+    #region Fields
     private Transform _drag = null;
     private bool _isDragging = false;
     private Vector3 _offset = Vector3.zero;
     [SerializeField] private SlimeWander _slimeWander = null;
     [SerializeField] private LayerMask _maskMovable;
+    [SerializeField] private AudioSource _carrySound = null;
+    #endregion Fields
+    #region Property
     public bool IsDragging
     {
         get
@@ -16,7 +20,7 @@ public class Drag : MonoBehaviour
             return _isDragging;
         }
     }
-
+    #endregion Property
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && _slimeWander.IsObstacled == false)
@@ -26,6 +30,7 @@ public class Drag : MonoBehaviour
             {
                 _drag = hit.transform;
                 _offset = _drag.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                _carrySound.Play();
             }
         }
         else if(Input.GetMouseButtonUp(0))

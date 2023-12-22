@@ -18,6 +18,7 @@ public class GameOver : MonoBehaviour
     [Header("Music")]
     [SerializeField] private AudioSource _gameOverMusic = null;
     [SerializeField] private AudioSource _buttonSound = null;
+    [SerializeField] private AudioSource _mainMenuMusic = null;
     private bool _hasFinishedMenuAnimation = false;
     private bool _hasFinishedRestartAnimation = false;
     private bool _isGameOver = false;
@@ -68,6 +69,7 @@ public class GameOver : MonoBehaviour
             _isGameOver = true;
             _initTutorial.BackgroundMusic.Stop();
             _gameOverMusic.Play();
+            _mainMenuMusic.Play();
         }
     }
 
