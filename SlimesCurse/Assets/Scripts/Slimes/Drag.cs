@@ -41,7 +41,7 @@ public class Drag : MonoBehaviour
 
         if(Input.GetMouseButtonUp(0) && _slimeWander._isObstacled == true)
         {
-            Debug.Log("OOOHHHHH");
+            
         }
     }
 }
