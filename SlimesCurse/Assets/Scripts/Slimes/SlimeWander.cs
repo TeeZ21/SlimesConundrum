@@ -66,7 +66,7 @@ public class SlimeWander : MonoBehaviour
 
         if(collision.tag == "Slime")
         {
-            _happinessController.Sadnessed(20f);
+            _happinessController.Sadnessed(.2f);
         }
     }
 }

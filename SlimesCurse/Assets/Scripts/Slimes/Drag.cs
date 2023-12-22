@@ -38,5 +38,10 @@ public class Drag : MonoBehaviour
         {
             _drag.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + _offset;
         }
+
+        if(Input.GetMouseButtonUp(0) && _slimeWander._isObstacled == true)
+        {
+            Debug.Log("OOOHHHHH");
+        }
     }
 }
