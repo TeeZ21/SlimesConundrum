@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-        if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == false)
+        if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == true)
         {
             Spawn();
         }

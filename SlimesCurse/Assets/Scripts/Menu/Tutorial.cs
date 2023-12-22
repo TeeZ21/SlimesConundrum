@@ -10,8 +10,13 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private string[] _labelsArray = null;
     [SerializeField] private AudioSource _buttonSound = null;
     private int _currentLabelIndex = 0;
-    private bool _isOutside = false;
     private bool _hasTutorial = false;
+    [SerializeField] private GameObject _blurBackground = null;
+    [SerializeField] private GameObject _blurHappinessBar = null;
+    [SerializeField] private GameObject _blurScore = null;
+    [SerializeField] private GameObject _blurContainer = null;
+    [SerializeField] private GameObject _king = null;
+
     public bool HasTutorial
     {
         get
@@ -27,37 +32,65 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         _displayTutorialLabel.text = _labelsArray[_currentLabelIndex];
-        _hasTutorial = false;
-
+        _blurBackground.SetActive(true);
+        _king.SetActive(true);
+        _blurHappinessBar.SetActive(false);
+        _blurScore.SetActive(false);
+        _blurContainer.SetActive(false);
     }
 
     public void ChangeTextOnClick()
     {
-        if(_isOutside == false && _currentLabelIndex < _labelsArray.Length)
+        if(_currentLabelIndex < _labelsArray.Length)
         {
             _buttonSound.Play();
             _currentLabelIndex++;
 
-            if (_currentLabelIndex > _labelsArray.Length)
+            if (_currentLabelIndex == _labelsArray.Length - 1)
             {
                 gameObject.SetActive(false);
-                _hasTutorial = true;
-                _isOutside = true;
+                HasTutorial = true;
             }
             _displayTutorialLabel.text = _labelsArray[_currentLabelIndex];
         }
-        else
-        {
-            gameObject.SetActive(false);
-            _hasTutorial = true;
-        }
 
-        if(_currentLabelIndex >= 4)
+        if(_currentLabelIndex == 1)
         {
-            gameObject.SetActive(false);
-            _hasTutorial = true;
-            Debug.Log("AHHH");
+            SetContainersPanel();
         }
+        if (_currentLabelIndex == 2)
+        {
+            SetHappinessBarPanel();
+        }
+        if (_currentLabelIndex == 3)
+        {
+            SetScorePanel();
+        }
+    }
 
+    private void SetContainersPanel()
+    {
+        _blurBackground.SetActive(false);
+        _blurHappinessBar.SetActive(false);
+        _blurScore.SetActive(false);
+        _blurContainer.SetActive(true);
+        _king.SetActive(true);
+    }
+
+    private void SetHappinessBarPanel()
+    {
+        _blurBackground.SetActive(false);
+        _blurHappinessBar.SetActive(true);
+        _blurScore.SetActive(false);
+        _blurContainer.SetActive(false);
+        _king.SetActive(false);
+    }
+    private void SetScorePanel()
+    {
+        _blurBackground.SetActive(false);
+        _blurHappinessBar.SetActive(false);
+        _blurScore.SetActive(true);
+        _blurContainer.SetActive(false);
+        _king.SetActive(true);
     }
 }

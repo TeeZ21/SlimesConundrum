@@ -1066,7 +1066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &338712772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1125,6 +1125,11 @@ MonoBehaviour:
     Good luck Comrade!
   - 
   _buttonSound: {fileID: 1502466813}
+  _blurBackground: {fileID: 1027887467}
+  _blurHappinessBar: {fileID: 500660895}
+  _blurScore: {fileID: 150024733}
+  _blurContainer: {fileID: 577927171}
+  _king: {fileID: 942724499}
 --- !u!1 &352626653
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,7 +2550,7 @@ GameObject:
   - component: {fileID: 577927174}
   - component: {fileID: 577927173}
   m_Layer: 5
-  m_Name: BlurSpace
+  m_Name: BlurContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2775,7 +2780,7 @@ MonoBehaviour:
   _gameOver: {fileID: 1972341402}
   _slimeTypes: 2
   _tutorial: {fileID: 338712773}
-  _drag: {fileID: 0}
+  _drag: {fileID: 597409790}
 --- !u!95 &597409793
 Animator:
   serializedVersion: 5
@@ -3366,7 +3371,7 @@ MonoBehaviour:
   _gameOver: {fileID: 1972341402}
   _slimeTypes: 1
   _tutorial: {fileID: 338712773}
-  _drag: {fileID: 0}
+  _drag: {fileID: 597409790}
 --- !u!1 &825770495
 GameObject:
   m_ObjectHideFlags: 0
@@ -5332,7 +5337,7 @@ MonoBehaviour:
   _gameOver: {fileID: 1972341402}
   _slimeTypes: 3
   _tutorial: {fileID: 338712773}
-  _drag: {fileID: 0}
+  _drag: {fileID: 597409790}
 --- !u!95 &1657024714
 Animator:
   serializedVersion: 5
@@ -5678,7 +5683,7 @@ MonoBehaviour:
   _gameOver: {fileID: 1972341402}
   _slimeTypes: 0
   _tutorial: {fileID: 338712773}
-  _drag: {fileID: 0}
+  _drag: {fileID: 597409790}
 --- !u!1 &1734608223
 GameObject:
   m_ObjectHideFlags: 0
@@ -6386,7 +6391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _happinessController: {fileID: 2104240922}
   _gameOverScreen: {fileID: 292498149}
-  _fadeTransition: {fileID: 0}
+  _fadeTransition: {fileID: 1972341403}
   _scoreText: {fileID: 1234686237}
   _fadeOutCircle: {fileID: 542647438}
   _gameOverMusic: {fileID: 509303075}

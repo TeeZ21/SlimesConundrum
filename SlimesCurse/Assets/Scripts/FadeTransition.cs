@@ -31,11 +31,10 @@ public class FadeTransition : MonoBehaviour
             _fadeAnimationTime -= Time.deltaTime;
         }
 
-        if (_fadeAnimationTime <= 0)
+        if (_fadeAnimationTime <= 0 && _tutorial.HasTutorial == false)
         {
             _fadeInCircle.SetActive(false);
             _tutorialPanel.SetActive(true);
-            _tutorial.HasTutorial = true;
         }
     }
 }

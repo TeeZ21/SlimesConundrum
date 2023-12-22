@@ -36,7 +36,7 @@ public class SlimeWander : MonoBehaviour
     }
     void MovingToWayPoint()
     {
-        if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == false)
+        if(_gameOver.IsGameOver == false && _tutorial.HasTutorial == true)
         {
             transform.position = Vector2.MoveTowards(transform.position, _wayPoint, _speed * Time.deltaTime);
             if (Vector2.Distance(transform.position, _wayPoint) < _range && _isObstacled == false)
